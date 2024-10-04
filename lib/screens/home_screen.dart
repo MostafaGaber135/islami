@@ -16,7 +16,7 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   int currentIndex = 0;
   List<Widget> tabs = [
-    const QuranTab(),
+     const QuranTab(),
     const HadethTab(),
     const SebhaTab(),
     const RadioTab(),
