@@ -17,12 +17,23 @@ class AppTheme {
       ),
     ),
     scaffoldBackgroundColor: Colors.transparent,
-    
     bottomNavigationBarTheme: const BottomNavigationBarThemeData(
       type: BottomNavigationBarType.fixed,
       backgroundColor: lightPrimary,
       selectedItemColor: Colors.black,
       unselectedItemColor: Colors.white,
+    ),
+    textTheme: const TextTheme(
+      headlineSmall: TextStyle(
+        fontSize: 25,
+        fontWeight: FontWeight.w400,
+        color: Colors.black,
+      ),
+      titleLarge: TextStyle(
+        fontSize: 20,
+        fontWeight: FontWeight.w400,
+        color: Colors.black,
+      ),
     ),
   );
   static ThemeData darkTheme = ThemeData(primaryColor: darkPrimary);
