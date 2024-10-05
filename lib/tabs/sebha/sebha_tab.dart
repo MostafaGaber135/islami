@@ -76,8 +76,12 @@ class _SebhaTabState extends State<SebhaTab> {
           height: 51,
           width: 137,
           decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(25),
-            color: const Color(0XFFB7935F),
+            borderRadius: BorderRadius.circular(
+              25,
+            ),
+            color: const Color(
+              0XFFB7935F,
+            ),
           ),
           child: Center(
             child: Text(
