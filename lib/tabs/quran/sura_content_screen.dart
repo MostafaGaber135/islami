@@ -48,34 +48,44 @@ class _SuraContentScreenState extends State<SuraContentScreen> {
           ),
         ),
         body: Container(
-            padding: const EdgeInsets.all(24),
-            margin: const EdgeInsets.only(
-              top: 120,
-              right: 29,
-              bottom: 98,
-              left: 29,
-            ),
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(25),
-              color: AppTheme.white,
-            ),
-            child: ListView.builder(
-              itemBuilder: (_, index) => Text(
-                ayat[index],
-                textAlign: TextAlign.center,
-                style: Theme.of(context).textTheme.titleLarge,
-              ),
-              itemCount: ayat.length,
-            )),
+          padding: const EdgeInsets.all(24),
+          margin: const EdgeInsets.only(
+            top: 120,
+            right: 29,
+            bottom: 98,
+            left: 29,
+          ),
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(25),
+            color: AppTheme.white,
+          ),
+          child: ayat.isNotEmpty
+              ? ListView.builder(
+                  itemBuilder: (_, index) => Text(
+                    ayat[index],
+                    textAlign: TextAlign.center,
+                    style: Theme.of(context).textTheme.titleLarge,
+                  ),
+                  itemCount: ayat.length,
+                )
+              : Center(
+                  child: CircularProgressIndicator(
+                    color: Theme.of(context).primaryColor,
+                  ),
+                ),
+        ),
       ),
     );
   }
 
-  void loadSuraFile() async {
+  Future<void> loadSuraFile() async {
     try {
+      await Future.delayed(
+        const Duration(seconds: 2),
+      );
       String fileContent =
           await rootBundle.loadString('assets/text/${args.index + 1}.txt');
-      List<String> loadedAyat = fileContent.split('\n');
+      List<String> loadedAyat = fileContent.split('\r\n');
       setState(() {
         ayat = loadedAyat;
       });
